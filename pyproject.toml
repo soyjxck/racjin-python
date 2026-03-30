@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.backends._legacy:_Backend"
+
+[project]
+name = "racjin"
+version = "1.0.0"
+description = "Compress and decompress Racjin game archives (CFC.DIG / CDDATA.DIG)"
+readme = "README.md"
+license = "GPL-3.0-only"
+requires-python = ">=3.9"
+keywords = ["racjin", "ps2", "psp", "compression", "game", "archive", "modding"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+    "Programming Language :: Python :: 3",
+    "Topic :: Games/Entertainment",
+    "Topic :: System :: Archiving :: Compression",
+]
+
+[project.scripts]
+racjin = "racjin.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/Raw-man/Racjin-de-compression"
+
+[tool.setuptools.packages.find]
+where = ["src"]
