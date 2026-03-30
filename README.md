@@ -4,6 +4,8 @@ Python implementation of the Racjin compression algorithm used in PS2/PSP/Wii ga
 
 Handles **CFC.DIG** and **CDDATA.DIG** archive files found in games by Racjin and other Japanese studios.
 
+If this helped you, consider [buying me a coffee](https://ko-fi.com/soyjack) ☕
+
 ## Supported Games
 
 - Fullmetal Alchemist and the Broken Angel (PS2)
