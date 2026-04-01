@@ -1,6 +1,6 @@
 [build-system]
-requires = ["setuptools>=61.0"]
-build-backend = "setuptools.backends._legacy:_Backend"
+requires = ["hatchling"]
+build-backend = "hatchling.build"
 
 [project]
 name = "racjin"
@@ -9,12 +9,20 @@ description = "Compress and decompress Racjin game archives (CFC.DIG / CDDATA.DI
 readme = "README.md"
 license = "GPL-3.0-only"
 requires-python = ">=3.9"
+authors = [
+    { name = "soyjxck" },
+]
 keywords = ["racjin", "ps2", "psp", "compression", "game", "archive", "modding"]
 classifiers = [
     "Development Status :: 4 - Beta",
     "Intended Audience :: Developers",
     "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
     "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
     "Topic :: Games/Entertainment",
     "Topic :: System :: Archiving :: Compression",
 ]
@@ -23,7 +31,9 @@ classifiers = [
 racjin = "racjin.cli:main"
 
 [project.urls]
-Homepage = "https://github.com/Raw-man/Racjin-de-compression"
+Homepage = "https://github.com/soyjxck/racjin-python"
+Repository = "https://github.com/soyjxck/racjin-python"
+Issues = "https://github.com/soyjxck/racjin-python/issues"
 
-[tool.setuptools.packages.find]
-where = ["src"]
+[tool.hatch.build.targets.wheel]
+packages = ["src/racjin"]

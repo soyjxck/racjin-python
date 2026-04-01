@@ -20,13 +20,19 @@ If this helped you, consider [buying me a coffee](https://ko-fi.com/soyjack) ☕
 ## Installation
 
 ```bash
-pip install .
+uv add racjin
 ```
 
-Or for development:
+Or with pip:
 
 ```bash
-pip install -e .
+pip install racjin
+```
+
+For development:
+
+```bash
+uv sync
 ```
 
 ## CLI Usage
