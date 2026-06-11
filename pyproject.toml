@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "racjin"
-version = "1.0.0"
+version = "1.0.1"
 description = "Compress and decompress Racjin game archives (CFC.DIG / CDDATA.DIG)"
 readme = "README.md"
 license = "GPL-3.0-only"
@@ -37,3 +37,13 @@ Issues = "https://github.com/soyjxck/racjin-python/issues"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/racjin"]
+
+[tool.ruff]
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "W", "F", "I", "UP", "B"]
+
+[tool.mypy]
+strict = true
+files = ["src", "tests"]

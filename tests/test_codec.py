@@ -1,12 +1,11 @@
 """Tests for Racjin compress/decompress round-trip."""
 
-import os
 import random
 
 from racjin import compress, decompress
 
 
-def test_roundtrip_simple():
+def test_roundtrip_simple() -> None:
     """Compress then decompress should return original data."""
     original = b"Hello, World! This is a test of the Racjin compression algorithm."
     compressed = compress(original)
@@ -14,7 +13,7 @@ def test_roundtrip_simple():
     assert decompressed == original
 
 
-def test_roundtrip_zeros():
+def test_roundtrip_zeros() -> None:
     """All-zero data should compress and decompress correctly."""
     original = b"\x00" * 1024
     compressed = compress(original)
@@ -22,7 +21,7 @@ def test_roundtrip_zeros():
     assert decompressed == original
 
 
-def test_roundtrip_repeated():
+def test_roundtrip_repeated() -> None:
     """Highly repetitive data should compress well."""
     original = b"ABCDEFGH" * 500
     compressed = compress(original)
@@ -31,7 +30,7 @@ def test_roundtrip_repeated():
     assert len(compressed) < len(original)
 
 
-def test_roundtrip_random():
+def test_roundtrip_random() -> None:
     """Random data should survive round-trip (even if it doesn't compress)."""
     random.seed(42)
     original = bytes(random.randint(0, 255) for _ in range(4096))
@@ -40,33 +39,34 @@ def test_roundtrip_random():
     assert decompressed == original
 
 
-def test_roundtrip_binary():
+def test_roundtrip_binary() -> None:
     """Binary data with mixed patterns."""
-    original = bytearray()
+    buf = bytearray()
     for i in range(256):
-        original.extend(bytes([i]) * (i % 8 + 1))
-    original = bytes(original)
+        buf.extend(bytes([i]) * (i % 8 + 1))
+    original = bytes(buf)
     compressed = compress(original)
     decompressed = decompress(compressed, len(original))
     assert decompressed == original
 
 
-def test_decompress_empty_raises():
+def test_decompress_empty_raises() -> None:
     """Decompressing with size 0 should raise ValueError."""
     try:
         decompress(b"\x00\x00", 0)
-        assert False, "Should have raised ValueError"
     except ValueError:
         pass
+    else:
+        raise AssertionError("Should have raised ValueError")
 
 
-def test_compress_empty():
+def test_compress_empty() -> None:
     """Compressing empty data should return empty or minimal output."""
     compressed = compress(b"")
     assert isinstance(compressed, bytes)
 
 
-def test_roundtrip_large():
+def test_roundtrip_large() -> None:
     """Test with larger data (64KB)."""
     random.seed(123)
     # Mix of compressible and random data

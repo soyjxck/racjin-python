@@ -186,7 +186,8 @@ def main() -> None:
     p_dec = subparsers.add_parser("decompress", aliases=["d"], help="Decompress a single file")
     p_dec.add_argument("input", help="Compressed input file")
     p_dec.add_argument("output", help="Decompressed output file")
-    p_dec.add_argument("--size", type=int, required=True, help="Expected decompressed size in bytes")
+    p_dec.add_argument("--size", type=int, required=True,
+                       help="Expected decompressed size in bytes")
     p_dec.set_defaults(func=cmd_decompress)
 
     # compress
@@ -196,7 +197,8 @@ def main() -> None:
     p_enc.set_defaults(func=cmd_compress)
 
     # extract
-    p_ext = subparsers.add_parser("extract", aliases=["x"], help="Extract all entries from a DIG archive")
+    p_ext = subparsers.add_parser("extract", aliases=["x"],
+                                  help="Extract all entries from a DIG archive")
     p_ext.add_argument("input", help="Path to CFC.DIG or CDDATA.DIG file")
     p_ext.add_argument("output", help="Output directory")
     p_ext.add_argument(

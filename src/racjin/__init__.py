@@ -16,5 +16,5 @@ Reference C++ implementation:
 
 from racjin.codec import compress, decompress
 
-__version__ = "1.0.0"
+__version__ = "1.0.1"
 __all__ = ["compress", "decompress"]
